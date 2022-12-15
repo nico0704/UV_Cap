@@ -4,7 +4,7 @@ ESP32C3 mit USB zum Laufen bringen--22.12.2022--Erledigt
 |
 UV Sensor Test--22.12.2022--Erledigt
 |
-Vibrationssensor Test--22.12.2022--
+Vibrationssensor Test--22.12.2022--Erledigt
 |
 Algorithmus für Zusammenhang zwischen--12.01.2023--
 verschiedenen Hauttypen, UV-Index und
