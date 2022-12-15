@@ -1,6 +1,5 @@
 Aufgabe--Deadline--Erledigt?
 |
-<br>
 ESP32C3 mit USB zum Laufen bringen--22.12.2022--Erledigt
 |
 UV Sensor Test--22.12.2022--Erledigt
