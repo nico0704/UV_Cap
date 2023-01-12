@@ -1,3 +1,7 @@
 https://wiki.seeedstudio.com/XIAO_ESP32C3_Getting_Started/ - Arduino IDE einrichten
 
 UV Sensor Library - https://github.com/sparkfun/SparkFun_VEML6075_Arduino_Library
+
+
+https://www.eucerin.de/hautzustand/sonnenschutz/lichtschutzfaktor#:~:text=Die%20Zahl%20des%20LSF%20bezieht,etwa%20f%C3%BCnf%20bis%2040%20Minuten.
+
