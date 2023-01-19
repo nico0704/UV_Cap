@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.lang.Math;
 
-public class Algorithm {
+public class AlgorithmV2 {
     public static Scanner in = new Scanner(System.in);
     public static double currentMinutes;  // -> Anzahl der Minuten, die man schon in der Sonne verbracht hat (Abgezogen vom currentProtectionTimer)
     public static double maxMinutes; // -> Gesamtzeit, die man in der Sonne verbringen kann (protectedMinutes)
