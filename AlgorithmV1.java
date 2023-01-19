@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class test_algorithm {
+public class AlgorithmV1 {
     static Scanner in = new Scanner(System.in);
     //static highest_UV_factor
     //static currentMinutes -> Anzahl der Minuten, die man schon in der Sonne verbracht hat (Abgezogen vom currentProtectionTimer)
