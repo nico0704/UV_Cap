@@ -37,7 +37,7 @@ void setup() {
 void loop() {
   Serial.println("we are now in the loop");
   // put your main code here, to run repeatedly:
-  //delay(1000);
+  delay(1000);
   if (currentMinutes > 0 && !timeUp) {
     double remainingTime = maxMinutes - currentMinutes;
     Serial.print("Verbleibende Zeit bis zum Sonnenbrand: ");
@@ -73,7 +73,7 @@ double calcMinutes(double med, double uv_index, double lsf) {
 }
 
 double getUVIndex() {
-  // hole uv index von sensor
+/*  // hole uv index von sensor
   Serial.println("Enter UV Index:");
   double uv_index = -1;
   while (uv_index <= 0) {
@@ -82,6 +82,10 @@ double getUVIndex() {
       uv_index = double(input);
     }
   }
+  return uv_index;
+  */
+  double uv_index = uv.index();
+  Serial.println("UV-Index=" + String(uv_index));
   return uv_index;
 }
 
@@ -123,4 +127,3 @@ int getSkinType() {
   Serial.println("returning skintype...");
   return skinType;
 }
-
