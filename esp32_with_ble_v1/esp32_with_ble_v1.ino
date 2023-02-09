@@ -42,6 +42,7 @@ double maxMinutes;
 double maxIndex;
 double med;
 double lsf;
+double uv_index;
 int skinType = -1;
 const double meds[] = {150.0, 250.0, 300.0, 450.0, 600.0, 900.0};
 boolean timeUp = false;
