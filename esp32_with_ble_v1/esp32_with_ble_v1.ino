@@ -75,7 +75,7 @@ class MyCallbacks: public BLECharacteristicCallbacks {
     if(rvalue.length() > 0) {
       if (dataArrived) {
         // daten sind schon da
-        break;
+        return;
       }
       Serial.printf("* daten empfangen: ");
       for(int i = 0; i < rvalue.length(); i++) {
