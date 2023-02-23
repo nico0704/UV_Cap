@@ -45,6 +45,7 @@ double lsf;
 double uv_index;
 int skinType = -1;
 const double meds[] = {150.0, 250.0, 300.0, 450.0, 600.0, 900.0};
+const double lsfs[] = {1.0, 6.0, 10.0, 15.0, 20.0, 30.0, 50.0};
 boolean timeUp = false;
 
 // function declarations
@@ -96,7 +97,7 @@ class MyCallbacks: public BLECharacteristicCallbacks {
           med = meds[skinType - 1];
         } else {
           // setze lsf
-          lsf = double(rvalue[i]);
+          lsf = lsfs[int(rvalue[i])];
           if (lsf == 0.0) {
             lsf = 1.0;
           }
@@ -176,9 +177,8 @@ void setup()
 void loop() 
 {
   static int cnt = 0;   // zaehler
-  char svalue[32];      // sendestring fuer temperatur
+  char svalue[32];
 
-  // wenn mit client verbunden: temperatur messen und senden
   if(devConn && dataArrived) {
     if((cnt % 4) == 0) {
       Serial.println("We are now in the loop");
