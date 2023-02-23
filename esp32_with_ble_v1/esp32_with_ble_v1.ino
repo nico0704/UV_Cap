@@ -220,8 +220,6 @@ void loop()
       maxMinutes = round(newProtectedMinutes);
       
     }
-    // schleifenzaehler hochzaehlen
-    ++cnt;  
   }
   
   // nicht verbunden -> advertising erneut starten
