@@ -28,7 +28,7 @@ double uv_index;
 int skinType = -1;
 const double meds[] = {150.0, 250.0, 300.0, 450.0, 600.0, 900.0};
 const double lsfs[] = {1.0, 6.0, 10.0, 15.0, 20.0, 30.0, 50.0};
-boolean timeUp = false;
+bool timeUp = false;
 
 // function declarations
 double calcMinutes(double med, double uv_index, double lsf);
