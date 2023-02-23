@@ -169,6 +169,7 @@ void loop()
   char svalue[32];
 
   if(devConn && dataArrived) {
+    cnt++;
     if((cnt % 4) == 0) {
       Serial.println("We are now in the loop");
       if (currentMinutes > 0 && !timeUp) {
