@@ -204,12 +204,14 @@ void loop()
         currentMinutes++;
       }
       if (int(uv_index) <= maxIndex) {
+        delay(250);
         return;
       }
       if (maxIndex == 0) {
         Serial.println("maxIndex == 0 -> Werte initial berechnet...");
         double protectedMinutes = calcMinutes(med, uv_index, lsf);
         maxMinutes = round(protectedMinutes);
+        delay(250);
         return;
       }
       double newProtectedMinutes = calcMinutes(med, uv_index, lsf);
