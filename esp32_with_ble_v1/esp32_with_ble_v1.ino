@@ -175,7 +175,7 @@ void loop()
         double remainingTime = maxMinutes - currentMinutes;
         Serial.print("Verbleibende Zeit bis zum Sonnenbrand: ");
         Serial.println(remainingTime);
-        sprintf(svalue, "%.2f", remainingTime);
+        sprintf(svalue, "%d", int(remainingTime));
         Serial.printf("* Timer #%d senden - %s\n", cnt, svalue);
         pCharacteristic->setValue(svalue);
         // notify und indicate -> neue daten pushen
