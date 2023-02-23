@@ -1,21 +1,3 @@
-// pm-18-ble-esp32-demo1.ino
-// klin, 27.11.2022
-// -> adafruit bme680 mit esp32 ble testprogramm - wemos lolin32 lite
-// -> i2c: sda -> pin19, scl -> pin23 (esp32 defaults: pin21, pin22)
-// -> ble app ble-nano-demo1 (aia und apk)
-
-// aufbau des ble servers
-// 1. ble server erzeugen
-// 2. ble service erzeugen -> server
-// 3. ble characteristic erzeugen -> service
-// 4. ble descriptor erzeugen -> characteristic
-// 5. service starten
-// 6. advertising starten
-// 7. in loop: wenn verbunden
-//    -> alle 2 sekunden temperatur messen und ueber ble senden
-//    -> ueber ble led-kommandos empfangen und led schalten
-//       led-kommandos: ein + (h,H), aus - (l,L), toggle # (t,T), pause sp (p,P)
-
 #include <BLEDevice.h>
 #include <BLEUtils.h>
 #include <BLEServer.h>
@@ -179,7 +161,7 @@ void setup()
   Serial.println("! advertising gestartet - warte auf anrufe ...");
 }
 //
-// loop - temperatur messen und ueber ble senden
+// loop
 //
 void loop() 
 {
