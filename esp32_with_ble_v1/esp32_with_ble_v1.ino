@@ -88,6 +88,9 @@ class MyCallbacks: public BLECharacteristicCallbacks {
   void onWrite(BLECharacteristic *pCharacteristic) {
     std::string rvalue = pCharacteristic->getValue();
     if(rvalue.length() > 0) {
+      if (!dataArrived) {
+        break;
+      }
       Serial.printf("* daten empfangen: ");
       for(int i = 0; i < rvalue.length(); i++) {
         Serial.printf("%02x-%c ", rvalue[i], rvalue[i]);
