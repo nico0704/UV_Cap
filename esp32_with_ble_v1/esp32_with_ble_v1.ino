@@ -79,6 +79,9 @@ class MyServerCallbacks: public BLEServerCallbacks {
   void onDisconnect(BLEServer* pServer) {
     Serial.printf("! verbindung zu ble client getrennt\n");
     // hier Hauttyp und LSF auf default setzen?
+    lsf = 1.0;
+    skinType = -1;
+    dataArrived = false;
     devConn = false;
   }
 };
@@ -88,7 +91,8 @@ class MyCallbacks: public BLECharacteristicCallbacks {
   void onWrite(BLECharacteristic *pCharacteristic) {
     std::string rvalue = pCharacteristic->getValue();
     if(rvalue.length() > 0) {
-      if (!dataArrived) {
+      if (dataArrived) {
+        // daten sind schon da
         break;
       }
       Serial.printf("* daten empfangen: ");
