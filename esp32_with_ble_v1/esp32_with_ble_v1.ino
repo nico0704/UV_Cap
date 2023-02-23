@@ -78,6 +78,8 @@ class MyCallbacks: public BLECharacteristicCallbacks {
         return;
       }
       Serial.printf("* daten empfangen: ");
+      Serial.printf("%s", rvalue);
+      Serial.println("%c", rvalue[0]);
       for(int i = 0; i < rvalue.length(); i++) {
         Serial.printf("%02x-%c ", rvalue[i], rvalue[i]);
         if (skinType < 0) {
