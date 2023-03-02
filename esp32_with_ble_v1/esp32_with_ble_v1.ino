@@ -65,6 +65,10 @@ class MyServerCallbacks: public BLEServerCallbacks {
     skinType = -1;
     dataArrived = false;
     devConn = false;
+    currentMinutes = 0;
+    maxMinutes = 1;
+    maxIndex = 0;
+    timeUp = false;
   }
 };
 
@@ -86,16 +90,16 @@ class MyCallbacks: public BLECharacteristicCallbacks {
         Serial.printf("Datenpaket %d: %d - %c \n" , i, rvalue[i], rvalue[i]);
           if (skinType < 0) {
             // setze Hauttyp
-            skinType = int(rvalue[i]);
+            skinType = int(rvalue[i]) - 48;
             med = meds[skinType - 1];
-            Serial.printf("SkinType: %d \n MED: %d", skinType, med);
+            Serial.printf("SkinType: %d \n MED: %f", skinType, med);
           } else {
             // setze lsf
-            lsf = lsfs[int(rvalue[i])];
+            lsf = lsfs[int(rvalue[i]) - 48];
             if (lsf == 0.0) {
               lsf = 1.0;
             }
-            Serial.printf("LSF: %d \n", lsf);
+            Serial.printf("LSF: %f \n", lsf);
             // flag setzen...
             dataArrived = true;
           }
@@ -123,9 +127,6 @@ void setup()
   }
   Serial.printf("! UV_Sensor gefunden\n");
   //Serial.println("UVA, UVB, UV Index");
-  currentMinutes = 0;
-  maxMinutes = 1;
-  maxIndex = 0;
     
   // ble mit Geraetenamen initialisieren
   BLEDevice::init(name);
@@ -179,12 +180,12 @@ void loop()
     uv_index = getUVIndex();
     cnt++;
     if((cnt % 4) == 0) {
-      Serial.println("We are now in the loop");
+      Serial.printf("Messung: %d - UV-Index: %f \n", cnt / 4, uv_index);
       if (currentMinutes > 0 && !timeUp) {
         double remainingTime = maxMinutes - currentMinutes;
         Serial.print("Verbleibende Zeit bis zum Sonnenbrand: ");
         Serial.println(remainingTime);
-        sprintf(svalue, "%d", int(remainingTime));
+        sprintf(svalue, "%f", remainingTime);
         Serial.printf("* Timer #%d senden - %s\n", cnt, svalue);
         pCharacteristic->setValue(svalue);
         // notify und indicate -> neue daten pushen
@@ -241,8 +242,9 @@ void loop()
 }
 
 double getUVIndex() {
-  double uv_index = uv.index();
-  Serial.println("UV-Index=" + String(uv_index));
+  //double uv_index = uv.index();
+  double uv_index = 3;
+//  Serial.println("UV-Index=" + String(uv_index));
   return uv_index;
 }
 
