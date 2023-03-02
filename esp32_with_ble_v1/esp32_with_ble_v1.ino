@@ -82,18 +82,20 @@ class MyCallbacks: public BLECharacteristicCallbacks {
       //Serial.println("%c", rvalue[0]);
       for(int i = 0; i < rvalue.length(); i++) {
         //Serial.printf("%02x-%c ", rvalue[i], rvalue[i]);
-        Serial.printf("Datenpaket %d: %d - %c \n" , i, rvalue[i], rvalue[i]);
         if (rvalue[i] != NULL) {
+        Serial.printf("Datenpaket %d: %d - %c \n" , i, rvalue[i], rvalue[i]);
           if (skinType < 0) {
             // setze Hauttyp
             skinType = int(rvalue[i]);
             med = meds[skinType - 1];
+            Serial.printf("SkinType: %d \n MED: %d", skinType, med);
           } else {
             // setze lsf
             lsf = lsfs[int(rvalue[i])];
             if (lsf == 0.0) {
               lsf = 1.0;
             }
+            Serial.printf("LSF: %d \n", lsf);
             // flag setzen...
             dataArrived = true;
           }
