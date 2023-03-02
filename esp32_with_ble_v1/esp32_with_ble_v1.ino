@@ -78,23 +78,25 @@ class MyCallbacks: public BLECharacteristicCallbacks {
         return;
       }
       Serial.printf("* daten empfangen: ");
-      Serial.printf("%s", rvalue);
-      Serial.println("%c", rvalue[0]);
+      //Serial.printf("%s", rvalue);
+      //Serial.println("%c", rvalue[0]);
       for(int i = 0; i < rvalue.length(); i++) {
         //Serial.printf("%02x-%c ", rvalue[i], rvalue[i]);
         Serial.printf("Datenpaket %d: %d - %c \n" , i, rvalue[i], rvalue[i]);
-        if (skinType < 0) {
-          // setze Hauttyp
-          skinType = int(rvalue[i]);
-          med = meds[skinType - 1];
-        } else {
-          // setze lsf
-          lsf = lsfs[int(rvalue[i])];
-          if (lsf == 0.0) {
-            lsf = 1.0;
+        if (rvalue[i] != NULL) {
+          if (skinType < 0) {
+            // setze Hauttyp
+            skinType = int(rvalue[i]);
+            med = meds[skinType - 1];
+          } else {
+            // setze lsf
+            lsf = lsfs[int(rvalue[i])];
+            if (lsf == 0.0) {
+              lsf = 1.0;
+            }
+            // flag setzen...
+            dataArrived = true;
           }
-          // flag setzen...
-          dataArrived = true;
         }
       }
       Serial.printf("\n");
