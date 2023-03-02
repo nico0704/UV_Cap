@@ -81,7 +81,8 @@ class MyCallbacks: public BLECharacteristicCallbacks {
       Serial.printf("%s", rvalue);
       Serial.println("%c", rvalue[0]);
       for(int i = 0; i < rvalue.length(); i++) {
-        Serial.printf("%02x-%c ", rvalue[i], rvalue[i]);
+        //Serial.printf("%02x-%c ", rvalue[i], rvalue[i]);
+        Serial.printf("Datenpaket %d: %d - %c \n" , i, rvalue[i], rvalue[i]);
         if (skinType < 0) {
           // setze Hauttyp
           skinType = int(rvalue[i]);
