@@ -56,19 +56,19 @@ class MyServerCallbacks: public BLEServerCallbacks {
   void onConnect(BLEServer *pServer) {
     Serial.printf("! mit ble client verbunden\n");
     devConn = true;
+    lsf = 1.0;
+    skinType = -1;
+    dataArrived = false;
+    currentMinutes = 0;
+    maxMinutes = 1;
+    maxIndex = 0;
+    timeUp = false;
   };
   // aufruf bei disconnect - flag ruecksetzen
   void onDisconnect(BLEServer* pServer) {
     Serial.printf("! verbindung zu ble client getrennt\n");
     // hier Hauttyp und LSF auf default setzen?
-    lsf = 1.0;
-    skinType = -1;
-    dataArrived = false;
     devConn = false;
-    currentMinutes = 0;
-    maxMinutes = 1;
-    maxIndex = 0;
-    timeUp = false;
   }
 };
 
