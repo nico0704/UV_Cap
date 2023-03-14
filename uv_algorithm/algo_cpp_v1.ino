@@ -45,7 +45,7 @@ void loop() {
   }
   if (currentMinutes >= maxMinutes && !timeUp) {
     timeUp = true;
-    Serial.println("Aus der Sonne du Knecht!!!");
+    Serial.println("Aus der Sonne!!!");
     return;
   }
   double uv_index = getUVIndex();
