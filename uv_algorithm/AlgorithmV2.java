@@ -30,7 +30,7 @@ public class AlgorithmV2 {
                 System.out.println("Verbleibende Zeit bis zum Sonnenbrand: " + (maxMinutes - currentMinutes));
             } 
             if (currentMinutes >= maxMinutes) {
-                System.out.println("Aus der Sonne du Knecht!!!");
+                System.out.println("Aus der Sonne!!!");
                 break;
             }
             double uv_index = getUVIndex();
